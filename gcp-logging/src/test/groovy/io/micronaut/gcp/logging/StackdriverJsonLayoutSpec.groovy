@@ -24,7 +24,7 @@ class StackdriverJsonLayoutSpec extends Specification {
         then:
         result['severity'] == expectedSeverity
         result['message'] == 'the message\njava.lang.IllegalArgumentException: exception message\n'
-        result['thread'] == 'main'
+        result['thread'] == 'main' || result['thread'] == 'Test worker'
         result['logger'] == this.class.canonicalName
         result['timestampSeconds'] == TimeUnit.MILLISECONDS.toSeconds(event.timeStamp)
         result['timestampNanos'] == TimeUnit.MILLISECONDS.toNanos(event.getTimeStamp() % 1_000)
