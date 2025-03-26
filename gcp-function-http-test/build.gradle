@@ -1,15 +1,10 @@
 plugins {
     id("io.micronaut.build.internal.gcp-module")
 }
-
 dependencies {
     api(mn.micronaut.http.server)
     api(libs.managed.functions.framework.api)
     api(projects.micronautGcpFunctionHttp)
-
-    implementation(mnServlet.micronaut.servlet.core)
-    implementation(libs.jetty.servlet)
-
     testAnnotationProcessor(mn.micronaut.inject.java)
 
     testImplementation(mn.micronaut.http.client)
